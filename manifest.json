@@ -1,0 +1,25 @@
+{
+
+	"manifest_version" : 2,
+
+	"name" : "Close Left tabs",
+	"version" : "0.1",
+	"description" : "Close Left Tabs on one click",
+
+
+	"browser_action" : {
+		"default_icon" : "icon.png",
+		"default_title" : "Close Left Tabs"
+	},
+
+	"background" : {
+
+		"scripts" : ["background.js"]
+
+	},
+
+	"icons": { 
+           "48": "icon48.png",
+          "128": "icon128.png" }
+
+}
