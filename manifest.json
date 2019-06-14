@@ -1,11 +1,14 @@
 {
 
-	"manifest_version" : 2,
+	"manifest_version" : 3,
 
 	"name" : "Close Left tabs",
 	"version" : "0.1",
 	"description" : "Close Left Tabs on one click",
 
+	"permissions" : [
+		"contextMenus"
+	],
 
 	"browser_action" : {
 		"default_icon" : "icon.png",
@@ -19,6 +22,7 @@
 	},
 
 	"icons": { 
+			"16": "icon16.png",
            "48": "icon48.png",
           "128": "icon128.png" }
 
