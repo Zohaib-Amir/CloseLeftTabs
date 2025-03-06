@@ -1,5 +1,3 @@
-
-
 function removeLeftTabs(win){
   //Remove each tab until the highlighted one is found
     for(var i = 0; win.tabs[i].highlighted != true; i++){
@@ -8,20 +6,22 @@ function removeLeftTabs(win){
     }
 }
 
-
-
 function OnContextMenuClicked(info, tab){
   chrome.windows.get(tab.windowId, {"populate" : true}, removeLeftTabs);
 
 }
 
-
-chrome.contextMenus.create({"title": "Close Left Tabs",
-"onclick": OnContextMenuClicked});
-
-
-chrome.browserAction.onClicked.addListener(function(tab) {
+chrome.contextMenus.onClicked.addListener(OnContextMenuClicked)
+chrome.action.onClicked.addListener(function(tab) {
   //Gets current window along with array of tabs
   chrome.windows.get(tab.windowId, {"populate" : true}, removeLeftTabs);
   
+});
+
+
+chrome.runtime.onInstalled.addListener(function() {
+  chrome.contextMenus.create({
+    id: "closeLeftTabs",
+    title: "Close Left Tabs",
+  }); 
 });
